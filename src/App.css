@@ -17,17 +17,31 @@
 .backgroundStyle {
 
   background-color: rgb(147, 88, 134);
-  margin-top: 6rem;
-  height: 150%;
-  width: 100%;
-  margin-bottom: 100px;
+  height: 900px;
+  max-width: 100%;
+  margin-bottom: 10px;
 }
 
 .cardGroupStyles {
 
-  width: 70%;
-  height: 70%;
-  justify-self: center;
-  margin-left: 15%;
-  gap: 80px;
+  border: 1px black double;
+  background-color: aquamarine;
+  max-width: 100rem;
+  height: 50rem;
+  margin-left: -70px;
+  gap: 55px;
+  justify-content: center;
+
+
+}
+
+.cardStyles {
+
+  margin-top: 150px;
+  max-height: 400px;
+}
+
+.colDD {
+
+  margin-bottom: 10px;
 }
