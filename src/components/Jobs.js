@@ -23,35 +23,38 @@ const Jobs = () => {
             <Container className="backgroundStyle">
 
                 <Row>
-                    <Col xs={8} md={6} sm={12} lg={4} >
+                    {/* <Col xs={8} md={6} sm={12} lg={4} > */}
+                    <Col>
                         <CardGroup className='cardGroupStyles'>
+                            <Col xs={12} sm={8} lg={2}>
+                                <Card className='cardStyles'>
+                                    <CardImg
+                                        alt="Card image cap"
+                                        src="https://picsum.photos/318/180"
+                                        top
+                                        width="100%"
+                                    />
+                                    <CardBody>
+                                        <CardTitle tag="h5">
+                                            Card title
+                                        </CardTitle>
+                                        <CardSubtitle
+                                            className="mb-2 text-muted"
+                                            tag="h6"
+                                        >
+                                            Card subtitle
+                                        </CardSubtitle>
+                                        <CardText>
+                                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                                        </CardText>
+                                        <Button>
+                                            Button
+                                        </Button>
+                                    </CardBody>
+                                </Card>
+                            </Col>
 
-                            <Card className='cardStyles'>
-                                <CardImg
-                                    alt="Card image cap"
-                                    src="https://picsum.photos/318/180"
-                                    top
-                                    width="100%"
-                                />
-                                <CardBody>
-                                    <CardTitle tag="h5">
-                                        Card title
-                                    </CardTitle>
-                                    <CardSubtitle
-                                        className="mb-2 text-muted"
-                                        tag="h6"
-                                    >
-                                        Card subtitle
-                                    </CardSubtitle>
-                                    <CardText>
-                                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                                    </CardText>
-                                    <Button>
-                                        Button
-                                    </Button>
-                                </CardBody>
-                            </Card>
-                            <Col xs={8} md={6} sm={12}>
+                            <Col xs={12} sm={8} lg={2}>
 
                                 <Card className='cardStyles'>
                                     <CardImg
@@ -79,34 +82,8 @@ const Jobs = () => {
                                     </CardBody>
                                 </Card>
                             </Col>
-                            {/* <Col xs={10} sm={10} md={9} lg={5}>
-                                <Card className='cardStyles'>
-                                    <CardImg
-                                        alt="Card image cap"
-                                        src="https://picsum.photos/318/180"
-                                        top
-                                        width="100%"
-                                    />
-                                    <CardBody>
-                                        <CardTitle tag="h5">
-                                            Card title
-                                        </CardTitle>
-                                        <CardSubtitle
-                                            className="mb-2 text-muted"
-                                            tag="h6"
-                                        >
-                                            Card subtitle
-                                        </CardSubtitle>
-                                        <CardText>
-                                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                                        </CardText>
-                                        <Button>
-                                            Button
-                                        </Button>
-                                    </CardBody>
-                                </Card>
-                            </Col>
-                            <Col xs={10} sm={10} md={9} lg={5}>
+
+                            <Col xs={12} sm={8} lg={2}>
 
                                 <Card className='cardStyles'>
                                     <CardImg
@@ -133,7 +110,36 @@ const Jobs = () => {
                                         </Button>
                                     </CardBody>
                                 </Card>
-                            </Col> */}
+                            </Col>
+                            <Col xs={12} sm={8} lg={2}>
+
+                                <Card className='cardStyles'>
+                                    <CardImg
+                                        alt="Card image cap"
+                                        src="https://picsum.photos/318/180"
+                                        top
+                                        width="100%"
+                                    />
+                                    <CardBody>
+                                        <CardTitle tag="h5">
+                                            Card title
+                                        </CardTitle>
+                                        <CardSubtitle
+                                            className="mb-2 text-muted"
+                                            tag="h6"
+                                        >
+                                            Card subtitle
+                                        </CardSubtitle>
+                                        <CardText>
+                                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                                        </CardText>
+                                        <Button>
+                                            Button
+                                        </Button>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+
                         </CardGroup>
                     </Col>
                 </Row>

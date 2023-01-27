@@ -17,28 +17,38 @@
 .backgroundStyle {
 
   background-color: rgb(147, 88, 134);
-  height: 900px;
+  height: auto;
   max-width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+
+
 }
 
 .cardGroupStyles {
 
-  border: 1px black double;
-  background-color: aquamarine;
-  max-width: 100rem;
+  /* border: 1px black double; */
+  /* background-color: rgb(90, 95, 93); */
+  /* opacity: .1; */
+  /* max-width: 100rem;
   height: 50rem;
-  margin-left: -70px;
-  gap: 55px;
+   */
+  margin-left: 35px;
+  gap: 85px;
   justify-content: center;
-
 
 }
 
 .cardStyles {
 
-  margin-top: 150px;
+
+  margin-left: -30px;
+  margin-top: 50px;
   max-height: 400px;
+  width: 280px;
+  margin-bottom: 15px;
+
 }
 
 .colDD {
