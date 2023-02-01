@@ -70,11 +70,10 @@ const Header = (...args) => {
                             <DropdownToggle caret>Job Categories</DropdownToggle>
                             <DropdownMenu {...args}>
                                 <DropdownItem header>Header</DropdownItem>
-                                <DropdownItem>Some Action</DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>Foo Action</DropdownItem>
-                                <DropdownItem>Bar Action</DropdownItem>
-                                <DropdownItem>Quo Action</DropdownItem>
+                                <DropdownItem>Development</DropdownItem>
+                                <DropdownItem>Project Management</DropdownItem>
+                                <DropdownItem>Quality Assurance</DropdownItem>
+                                <DropdownItem>Business Analysis</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
 
@@ -82,15 +81,14 @@ const Header = (...args) => {
                     </Col>
                     <Col className='colDD' md={6}>
 
-                        <Dropdown isOpen={dropdownOpen2} toggle={toggle2} direction={'down'}>
-                            <DropdownToggle caret>Jobs for Category</DropdownToggle>
+                        <Dropdown isOpen={dropdownOpen2} toggle={toggle2} direction={'down'} className="styleDD">
+                            <DropdownToggle caret>Location By State </DropdownToggle>
                             <DropdownMenu {...args}>
                                 <DropdownItem header>Header</DropdownItem>
-                                <DropdownItem>Some Action</DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>Foo Action</DropdownItem>
-                                <DropdownItem>Bar Action</DropdownItem>
-                                <DropdownItem>Quo Action</DropdownItem>
+                                <DropdownItem> Location 1</DropdownItem>
+                                <DropdownItem> Location 2</DropdownItem>
+                                <DropdownItem> Location 3</DropdownItem>
+                                <DropdownItem> Location 4</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
 

@@ -36,7 +36,7 @@ const Jobs = () => {
                                     />
                                     <CardBody>
                                         <CardTitle tag="h5">
-                                            Card title
+                                            Job 1
                                         </CardTitle>
                                         <CardSubtitle
                                             className="mb-2 text-muted"

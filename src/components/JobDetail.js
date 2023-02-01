@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import {
-    Button, Jumbotron, Container, Card, CardGroup, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Collapse,
+    Button, Row, Col, Jumbotron, Container, Card, CardGroup, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Collapse,
     Navbar,
     NavbarToggler,
     NavbarBrand,
@@ -18,9 +18,25 @@ const JobDetail = () => {
     return (
 
         <>
+            <Container className="jobDetailPanBG" fluid="xl">
+                <Row>
+                    <Col>
+                        <Card body>
+                            <CardTitle tag="h5">
+                                Job 1
+                            </CardTitle>
+                            <CardText className='jobDetailPan'>
+                                Job Description One.
+                            </CardText>
+                            <Button color='warning' className='styleApplyBttn'>
+                                Apply
+                            </Button>
+                        </Card>
+                    </Col>
 
-            <h3> Test </h3>
+                </Row>
 
+            </Container>
         </>
 
     );
