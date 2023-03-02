@@ -1,0 +1,103 @@
+export let data = [
+    {
+        "category": "Development",
+        "state": "Texas",
+        "numJobs": 3
+    },
+    {
+        "category": "Project Management",
+        "state": "Texas",
+        "numJobs": 2
+    },
+    {
+        "category": "Quality Assurance",
+        "state": "Texas",
+        "numJobs": 1
+    },
+    {
+        "category": "Business Analysis",
+        "state": "Texas",
+        "numJobs": 4
+    },
+    {
+        "category": "Development",
+        "state": "Illinois",
+        "numJobs": 2
+    },
+    {
+        "category": "Project Management",
+        "state": "Illinois",
+        "numJobs": 3
+    },
+    {
+        "category": "Quality Assurance",
+        "state": "Illinois",
+        "numJobs": 4
+    },
+    {
+        "category": "Business Analysis",
+        "state": "Illinois",
+        "numJobs": 3
+    },
+    {
+        "category": "Development",
+        "state": "California",
+        "numJobs": 2
+    },
+    {
+        "category": "Project Management",
+        "state": "California",
+        "numJobs": 4
+    },
+    {
+        "category": "Quality Assurance",
+        "state": "California",
+        "numJobs": 3
+    },
+    {
+        "category": "Business Analysis",
+        "state": "California",
+        "numJobs": 1
+    },
+    {
+        "category": "Development",
+        "state": "New Jersey",
+        "numJobs": 4
+    },
+    {
+        "category": "Project Management",
+        "state": "New Jersey",
+        "numJobs": 2
+    },
+    {
+        "category": "Quality Assurance",
+        "state": "New Jersey",
+        "numJobs": 1
+    },
+    {
+        "category": "Business Analysis",
+        "state": "New Jersey",
+        "numJobs": 3
+    },
+    {
+        "category": "Development",
+        "state": "Florida",
+        "numJobs": 2
+    },
+    {
+        "category": "Project Management",
+        "state": "Florida",
+        "numJobs": 1
+    },
+    {
+        "category": "Quality Assurance",
+        "state": "Florida",
+        "numJobs": 4
+    },
+    {
+        "category": "Business Analysis",
+        "state": "Florida",
+        "numJobs": 3
+    }
+
+];

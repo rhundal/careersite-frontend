@@ -13,6 +13,7 @@ import {
 
 const JobDetail = () => {
 
+    // selectedJob
 
 
     return (
