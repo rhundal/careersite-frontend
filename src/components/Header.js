@@ -23,48 +23,39 @@ const Header = () => {
     const jobs = useSelector(selectAllData);
 
 
-    let Category = [];
+    let Category = [];      // holds unique values
     let ListofStates = [];
     let NumJobs = [];
 
     for (let i = 0; i < jobs.length; i++) {
 
-        for (const property in jobs[i]) {
+        if (!Category.includes(jobs[i]['category'])) {
 
-            if (!Category.includes(jobs[i]['category'])) {
-
-                Category.push(jobs[i]['category']);
-            }
-            break;
+            Category.push(jobs[i]['category']);
         }
+
     }
 
     Category.sort();
 
     for (let j = 0; j < jobs.length; j++) {
 
-        for (const property in jobs[j]) {
+        if (!ListofStates.includes(jobs[j]['state'])) {
 
-            if (!ListofStates.includes(jobs[j]['state'])) {
-
-                ListofStates.push(jobs[j]['state']);
-            }
-            break;
+            ListofStates.push(jobs[j]['state']);
         }
+
     }
 
     ListofStates.sort();
 
     for (let k = 0; k < jobs.length; k++) {
 
-        for (const property in jobs[k]) {
+        if (!NumJobs.includes(jobs[k]['numJobs'])) {
 
-            if (!NumJobs.includes(jobs[k]['numJobs'])) {
-
-                NumJobs.push(jobs[k]['numJobs']);
-            }
-            break;
+            NumJobs.push(jobs[k]['numJobs']);
         }
+
     }
 
     NumJobs.sort();
@@ -84,42 +75,30 @@ const Header = () => {
 
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedState, setSelectedState] = useState('');
-    const [stateList, setStateList] = useState([]);
     const [selectedNumJobs, setSelectedNumJobs] = useState('');
-    const [numJobList, setNumJobList] = useState([]);
 
     // handle change event of the category dropdown
 
-    const handleCategoryChange = (obj) => {
-        setSelectedCategory(obj);
-        setStateList(obj['state']);        // get from data
+    const handleCategoryChange = (category) => {
+
+        setSelectedCategory(category);
         setSelectedState(null);
     };
 
 
     // handle change event of the state dropdown
 
-    const handleStateChange = (obj) => {
+    const handleStateChange = (selstate) => {
 
-
-        setSelectedState(obj);
-        setNumJobList(obj['numJobs']);
+        setSelectedState(selstate);
         setSelectedNumJobs(null);
-        //  e.target.
-        // setCategory(obj);
-        // setStateList(obj.states);
-        // setState(null);
     };
 
     // handle change event of the numJobs dropdown
 
-    const handleNumJobsChange = (obj) => {
+    const handleNumJobsChange = (numOfJobs) => {
 
-        setSelectedNumJobs(obj);
-
-        // setCategory(obj);
-        // setStateList(obj.states);
-        // setState(null);
+        setSelectedNumJobs(numOfJobs);
     };
 
 
@@ -161,17 +140,20 @@ const Header = () => {
                 </Row>
                 <Row>
                     <Col className='colDD'>
-                        {/* onChange={handleCategoryChange} */}
-                        <Dropdown isOpen={dropdownOpen1} toggle={toggle1} direction={'down'} onSelect={handleCategoryChange}>
+
+                        <Dropdown isOpen={dropdownOpen1} toggle={toggle1} direction={'down'}>
                             <DropdownToggle caret> {selectedCategory === '' ? 'Job Categories' : selectedCategory} </DropdownToggle>
                             <DropdownMenu>
 
-                                {Category.map((category, index) => (
-                                    <DropdownItem key={index} onClick={() => setSelectedCategory(category)} selected>
-                                        {category}
-                                    </DropdownItem>
+                                {
+                                    Category.map((category, index) => (
+                                        <DropdownItem key={index} onClick={() => { handleCategoryChange(category); }} selected>
+                                            {category}
+                                        </DropdownItem>
 
-                                ))}
+                                    ))
+
+                                }
 
                             </DropdownMenu>
 
@@ -181,17 +163,20 @@ const Header = () => {
                     </Col>
                     <Col className='colDD' md={6}>
 
-                        <Dropdown isOpen={dropdownOpen2} toggle={toggle2} direction={'down'} className="styleDD" onSelect={handleStateChange}>
+                        <Dropdown isOpen={dropdownOpen2} toggle={toggle2} direction={'down'} className="styleDD">
                             <DropdownToggle caret>  {selectedCategory === '' ? 'Location By State' : selectedState} </DropdownToggle>
-                            {/* {console.log(stateList)} */}
                             <DropdownMenu>
 
-                                {ListofStates.map((selstate, index) => (
-                                    <DropdownItem key={index} onClick={() => setSelectedState(selstate)} selected>
-                                        {selstate}
-                                    </DropdownItem>
+                                {
+                                    ListofStates.map((selstate, index) => (
 
-                                ))}
+                                        <DropdownItem key={index} onClick={() => { handleStateChange(selstate); }} selected>
+                                            {selstate}
+                                        </DropdownItem>
+
+                                    ))
+                                }
+
                             </DropdownMenu>
                         </Dropdown>
 
@@ -203,7 +188,7 @@ const Header = () => {
                             <DropdownMenu>
 
                                 {NumJobs.map((numOfJobs, index) => (
-                                    <DropdownItem key={index} onClick={() => setSelectedNumJobs(numOfJobs)} selected>
+                                    <DropdownItem key={index} onClick={() => handleNumJobsChange(numOfJobs)} selected>
                                         {numOfJobs}
                                     </DropdownItem>
 
