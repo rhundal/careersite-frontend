@@ -14,7 +14,6 @@ const Home = () => {
         <>
             {/* <Header category={category} state={state} numJobs={numJobs} /> */}
             <Header />
-
             <Background />
             <JobDetail />
         </>

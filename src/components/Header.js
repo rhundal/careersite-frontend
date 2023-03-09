@@ -1,6 +1,7 @@
 import Select from "react-select";
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
+import { ThemeContext } from '../App';
 
 import {
     Button, Jumbotron, Container, Card, CardBody, CardTitle, CardSubtitle, CardText, Collapse,
@@ -22,12 +23,13 @@ const Header = () => {
 
     const jobs = useSelector(selectAllData);
 
+    const { selectedCategory, setSelectedCategory, selectedState, setSelectedState, selectedNumJobs, setSelectedNumJobs } = useContext(ThemeContext);
 
     let Category = [];      // holds unique values
     let ListofStates = [];
-    let NumJobs = [];
+    let NumJobs = [1, 2, 3, 4];
 
-    for (let i = 0; i < jobs.length; i++) {
+    for (let i = 0; i < jobs.length; i++) { // category
 
         if (!Category.includes(jobs[i]['category'])) {
 
@@ -38,7 +40,7 @@ const Header = () => {
 
     Category.sort();
 
-    for (let j = 0; j < jobs.length; j++) {
+    for (let j = 0; j < jobs.length; j++) {     // state
 
         if (!ListofStates.includes(jobs[j]['state'])) {
 
@@ -49,14 +51,14 @@ const Header = () => {
 
     ListofStates.sort();
 
-    for (let k = 0; k < jobs.length; k++) {
+    // for (let k = 0; k < jobs.length; k++) {     // num of Jobs
 
-        if (!NumJobs.includes(jobs[k]['numJobs'])) {
+    //     if (!NumJobs.includes(jobs[k]['numJobs'])) {
 
-            NumJobs.push(jobs[k]['numJobs']);
-        }
+    //         NumJobs.push(jobs[k]['numJobs']);
+    //     }
 
-    }
+    // }
 
     NumJobs.sort();
 
@@ -72,17 +74,14 @@ const Header = () => {
     const [dropdownOpen3, setDropdownOpen3] = useState(false);
     const toggle3 = () => setDropdownOpen3((prevState) => !prevState);
 
-
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const [selectedState, setSelectedState] = useState('');
-    const [selectedNumJobs, setSelectedNumJobs] = useState('');
-
     // handle change event of the category dropdown
 
     const handleCategoryChange = (category) => {
 
         setSelectedCategory(category);
-        setSelectedState(null);
+        //   setDropdownOpen1(false);
+        // setInitialSelectedCategory(selectedCategory);
+        setTimeout(() => console.log("category from header" + selectedCategory), 5000);
     };
 
 
@@ -91,7 +90,8 @@ const Header = () => {
     const handleStateChange = (selstate) => {
 
         setSelectedState(selstate);
-        setSelectedNumJobs(null);
+        console.log("state from header" + selectedState);
+
     };
 
     // handle change event of the numJobs dropdown
@@ -99,8 +99,8 @@ const Header = () => {
     const handleNumJobsChange = (numOfJobs) => {
 
         setSelectedNumJobs(numOfJobs);
-    };
 
+    };
 
 
     return (
@@ -141,13 +141,19 @@ const Header = () => {
                 <Row>
                     <Col className='colDD'>
 
+                        {/* <Button
+                            onClick={() => console.log(initialStateVars)}
+                            title='Debug'>
+                            Debug
+                        </Button> */}
+
                         <Dropdown isOpen={dropdownOpen1} toggle={toggle1} direction={'down'}>
                             <DropdownToggle caret> {selectedCategory === '' ? 'Job Categories' : selectedCategory} </DropdownToggle>
                             <DropdownMenu>
 
                                 {
                                     Category.map((category, index) => (
-                                        <DropdownItem key={index} onClick={() => { handleCategoryChange(category); }} selected>
+                                        <DropdownItem key={index} onClick={() => handleCategoryChange(category)} selected>
                                             {category}
                                         </DropdownItem>
 
@@ -164,13 +170,15 @@ const Header = () => {
                     <Col className='colDD' md={6}>
 
                         <Dropdown isOpen={dropdownOpen2} toggle={toggle2} direction={'down'} className="styleDD">
-                            <DropdownToggle caret>  {selectedCategory === '' ? 'Location By State' : selectedState} </DropdownToggle>
+                            <DropdownToggle caret>  {selectedCategory === '' ? 'Select State' : selectedState} </DropdownToggle>
                             <DropdownMenu>
 
                                 {
                                     ListofStates.map((selstate, index) => (
 
-                                        <DropdownItem key={index} onClick={() => { handleStateChange(selstate); }} selected>
+                                        <DropdownItem key={index} onClick={() => handleStateChange(selstate)
+
+                                        } selected>
                                             {selstate}
                                         </DropdownItem>
 
@@ -184,11 +192,15 @@ const Header = () => {
                     <Col className='colDD'>
 
                         <Dropdown isOpen={dropdownOpen3} toggle={toggle3} direction={'down'} onChange={handleNumJobsChange}>
-                            <DropdownToggle caret>  {selectedState === '' ? 'Number of Jobs' : selectedNumJobs}  </DropdownToggle>
+                            <DropdownToggle caret>  {selectedState === '' ? 'Select Num of Jobs' : selectedNumJobs}  </DropdownToggle>
                             <DropdownMenu>
 
                                 {NumJobs.map((numOfJobs, index) => (
-                                    <DropdownItem key={index} onClick={() => handleNumJobsChange(numOfJobs)} selected>
+                                    <DropdownItem key={index} onClick={() => handleNumJobsChange(numOfJobs)
+
+                                    }
+
+                                        selected>
                                         {numOfJobs}
                                     </DropdownItem>
 

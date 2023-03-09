@@ -1,5 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+// import { ThemeContext } from '../context/GlobalState';
+import { useSelector } from 'react-redux';
+import { selectAllData } from "../features/jobsSlice";
+import { ThemeContext } from '../App';
 
 import {
     Button, Jumbotron, Container, Card, CardGroup, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Collapse,
@@ -12,10 +16,21 @@ import {
     Table, Dropdown, Row, Col, DropdownItem, DropdownMenu, DropdownToggle
 } from 'reactstrap';
 
+
 const Jobs = () => {
 
-    // selectedJob
+    const jobs = useSelector(selectAllData);
 
+    const { selectedCategory, selectedState, selectedNumJobs } = useContext(ThemeContext);
+
+
+    console.log("selectedCategory from jobs " + selectedCategory);
+
+    console.log("selectedState from jobs " + selectedState);
+
+    console.log("selectedNumJobs from jobs " + selectedNumJobs);
+
+    let count = 0;
 
     return (
 
@@ -25,124 +40,60 @@ const Jobs = () => {
 
                 <Row>
                     {/* <Col xs={8} md={6} sm={12} lg={4} > */}
-                    <Col>
-                        <CardGroup className='cardGroupStyles'>
-                            <Col xs={12} sm={8} lg={2}>
-                                <Card className='cardStyles'>
-                                    <CardImg
-                                        alt="Card image cap"
-                                        src="https://picsum.photos/318/180"
-                                        top
-                                        width="100%"
-                                    />
-                                    <CardBody>
-                                        <CardTitle tag="h5">
-                                            Job 1
-                                        </CardTitle>
-                                        <CardSubtitle
-                                            className="mb-2 text-muted"
-                                            tag="h6"
-                                        >
-                                            Card subtitle
-                                        </CardSubtitle>
-                                        <CardText>
-                                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                                        </CardText>
-                                        <Button>
-                                            Button
-                                        </Button>
-                                    </CardBody>
-                                </Card>
-                            </Col>
 
-                            <Col xs={12} sm={8} lg={2}>
+                    {/* { for(let i = 0; i < selectedNumJobs; i++) { */}
+                    {
 
-                                <Card className='cardStyles'>
-                                    <CardImg
-                                        alt="Card image cap"
-                                        src="https://picsum.photos/318/180"
-                                        top
-                                        width="100%"
-                                    />
-                                    <CardBody>
-                                        <CardTitle tag="h5">
-                                            Card title
-                                        </CardTitle>
-                                        <CardSubtitle
-                                            className="mb-2 text-muted"
-                                            tag="h6"
-                                        >
-                                            Card subtitle
-                                        </CardSubtitle>
-                                        <CardText>
-                                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                                        </CardText>
-                                        <Button>
-                                            Button
-                                        </Button>
-                                    </CardBody>
-                                </Card>
-                            </Col>
+                        // jobs.forEach((elem) => {
+                        // const myArray = [1,2,3,4];
+                        // myArray.map((el)=> {if(el % 2 === 1) { return el;}});
+                        // newArray = [1, undefined, 3, undefined];
 
-                            <Col xs={12} sm={8} lg={2}>
+                        jobs.filter((elem) => {
+                            if (elem.category === selectedCategory && elem.state === selectedState && count < selectedNumJobs) {
 
-                                <Card className='cardStyles'>
-                                    <CardImg
-                                        alt="Card image cap"
-                                        src="https://picsum.photos/318/180"
-                                        top
-                                        width="100%"
-                                    />
-                                    <CardBody>
-                                        <CardTitle tag="h5">
-                                            Card title
-                                        </CardTitle>
-                                        <CardSubtitle
-                                            className="mb-2 text-muted"
-                                            tag="h6"
-                                        >
-                                            Card subtitle
-                                        </CardSubtitle>
-                                        <CardText>
-                                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                                        </CardText>
-                                        <Button>
-                                            Button
-                                        </Button>
-                                    </CardBody>
-                                </Card>
-                            </Col>
-                            <Col xs={12} sm={8} lg={2}>
+                                count += 1;
+                                return true;
+                            }
 
-                                <Card className='cardStyles'>
-                                    <CardImg
-                                        alt="Card image cap"
-                                        src="https://picsum.photos/318/180"
-                                        top
-                                        width="100%"
-                                    />
-                                    <CardBody>
-                                        <CardTitle tag="h5">
-                                            Card title
-                                        </CardTitle>
-                                        <CardSubtitle
-                                            className="mb-2 text-muted"
-                                            tag="h6"
-                                        >
-                                            Card subtitle
-                                        </CardSubtitle>
-                                        <CardText>
-                                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                                        </CardText>
-                                        <Button>
-                                            Button
-                                        </Button>
-                                    </CardBody>
-                                </Card>
-                            </Col>
+                        }).map((elem) => {
+                            return (
+                                <Col>
+                                    < CardGroup className='cardGroupStyles'>
+                                        <Col xs={12} sm={8} lg={2}>
+                                            <Card className='cardStyles'>
+                                                <CardImg
+                                                    alt="Card image cap"
+                                                    src="https://picsum.photos/318/180"
+                                                    top
+                                                    width="100%"
+                                                />
+                                                <CardBody>
+                                                    <CardTitle tag="h5">
+                                                        {elem.title}
+                                                    </CardTitle>
+                                                    <CardSubtitle
+                                                        className="mb-2 text-muted"
+                                                        tag="h6"
+                                                    >
+                                                        {elem.subtitle}
+                                                    </CardSubtitle>
+                                                    <CardText>
+                                                        {elem.description}
+                                                    </CardText>
+                                                    <Button>
+                                                        Button
+                                                    </Button>
+                                                </CardBody>
+                                            </Card>
+                                        </Col>
+                                    </CardGroup>
 
-                        </CardGroup>
-                    </Col>
+                                </Col>
+                            );
+                        })
+                    }
+
                 </Row>
 
             </Container>
@@ -154,3 +105,4 @@ const Jobs = () => {
 };
 
 export default Jobs;
+
